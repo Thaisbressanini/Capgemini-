@@ -1,0 +1,40 @@
+<meta charset="utf-8">
+
+<script>
+    
+    function verifica(){
+   var senha = document.getElementById("senha").value;
+   var forca = 0;
+   var mostra = document.getElementById("mostra");
+    
+    if((senha.length >= 6) && (senha.length <= 8)){
+        forca += 10;
+    }else if(senha.length>6){
+        forca += 5;
+    }
+    if(senha.match(/[a-z]+/)){
+        forca += 10;
+    }
+    if(senha.match(/[A-Z]+/)){
+        forca += 10;
+    }
+    if(senha.match(/([~,!,@,#,$,%,^,&,*,-,_,+,=,?,>,<])/){
+        forca += 10;
+    }
+    if(senha.match([0-9])){
+        forca += 15;
+    }
+    return mostra_res();
+}
+function mostra_res(){
+    if(forca < 30){
+        document.write ("Senha fraca, faltam 2 caracteres");
+    }else if((forca >= 30) && (forca < 50)){
+       document.write("Senha fraca, falta 1 caracter");
+    }else if((forca >= 50) && (forca < 70)){
+        document.write("Senha Valida, parabéns!");
+    }else{
+        document.write("Senha com segurança Máxima");
+    }
+}
+</script>
